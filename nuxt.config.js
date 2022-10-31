@@ -11,6 +11,7 @@ const theme = {
 }
 
 export default {
+  target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: "DM's Toolbox - %s",
@@ -65,7 +66,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.baseURL || 'http://localhost:3000/',
+    baseURL: process.env.baseUrl || 'http://localhost:3000/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
