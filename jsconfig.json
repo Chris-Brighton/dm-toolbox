@@ -6,9 +6,7 @@
       "@/*": ["./*"],
       "~~/*": ["./*"],
       "@@/*": ["./*"]
-    },
-    "jsx": "preserve"
+    }
   },
-  "extensions": [".vue"],
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
