@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{613:function(n,e,l){"use strict";l.r(e);var t={name:"SpellScaleStatic"},c=l(88),component=Object(c.a)(t,(function(){return(0,this._self._c)("div")}),[],!1,null,null,null);e.default=component.exports}}]);

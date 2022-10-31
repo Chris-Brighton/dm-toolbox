@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/spell", {data:[{}],fetch:{},mutations:void 0});

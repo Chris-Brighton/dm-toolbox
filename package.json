@@ -1,5 +1,5 @@
 {
-  "name": "dnd-dm-helper",
+  "name": "dm-toolbox",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "predev": "npm run snv",
     "prebuild": "npm run snv",
     "prestart": "npm run snv",
+    "pregenerate": "npm run snv",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",

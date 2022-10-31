@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fdm-toolbox\u002F_nuxt\u002Fstatic\u002F1667250127",layout:"default",error:a,serverRendered:true,routePath:"\u002Fmonster",config:{_app:{basePath:"\u002Fdm-toolbox\u002F",assetsPath:"\u002Fdm-toolbox\u002F_nuxt\u002F",cdnURL:a}}}}(null));
