@@ -1,0 +1,52 @@
+{
+  "name": "dnd-dm-helper",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "snv": "sh nvm.config.sh",
+    "prei": "npm run snv",
+    "preinstall": "npm run snv",
+    "predev": "npm run snv",
+    "prebuild": "npm run snv",
+    "prestart": "npm run snv",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:prettier",
+    "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "5.13.6",
+    "@nuxtjs/toast": "3.3.1",
+    "@nuxtjs/vuetify": "1.12.3",
+    "core-js": "3.25.3",
+    "handy-helpers": "git+https://github.com/Chris-Brighton/handy-helpers.git",
+    "nuxt": "2.15.8",
+    "nuxt-serve": "git+https://github.com/Chris-Brighton/nuxt-serve.git",
+    "postcss-import": "^15.0.0",
+    "sequelize": "6.21.3",
+    "sqlite3": "5.0.11",
+    "uniqid": "5.4.0",
+    "vue": "2.7.10",
+    "vue-server-renderer": "2.7.10",
+    "vue-template-compiler": "2.7.10",
+    "vue2-editor": "2.10.3",
+    "vuetify": "2.6.10"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-module": "^3.1.0",
+    "@volar-plugins/vetur": "^0.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.7.0",
+    "eslint-webpack-plugin": "^3.2.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.55.0",
+    "sass-loader": "10.1.1"
+  }
+}
