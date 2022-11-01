@@ -4,7 +4,7 @@
 
 Install the version of node relevant to your operating system > [Node Website](https://nodejs.org/en/download/)
 
-Download the zip folder from git for the project > [Download Link](https://github.com/Chris-Brighton/dm-toolbox/archive/refs/heads/version-0.0.1.zip)
+Download the zip folder from git for the project > [Download Link version-0.0.1](https://github.com/Chris-Brighton/dm-toolbox/archive/refs/heads/version-0.0.1.zip)
 
 Unzip the folder after downloading
 
