@@ -5,15 +5,14 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "node index.js",
-    "start-nuxt": "nuxt start",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
-    "lintfix": "prettier --write --list-different ."
+    "lintfix": "prettier --write --list-different .",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@nuxt/cli": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/toast": "^3.3.1",
     "core-js": "^3.25.3",
