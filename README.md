@@ -2,7 +2,26 @@
 
 ## Install Setup
 
-Install the version of node relevant to your operating system > [Node Link](https://nodejs.org/en/download/)
+Install the version of node relevant to your operating system > [Node Website](https://nodejs.org/en/download/)
+
+Download the zip folder from git for the project > [Download Link](https://github.com/Chris-Brighton/dm-toolbox/archive/refs/heads/version-0.0.1.zip)
+
+Unzip the folder after downloading
+
+Open a windows command prompt and navigate to the unzipped folder using `cd` > [Microsoft Help Website](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd)
+
+Once you have navigated to the `dm-toolbox` folder you will need to run 2 commands.
+First run `npm install`
+When that has finished run `npm run start` and leave the terminal running you can minimize it just don't close it (this will close the application)
+
+When the application starts it should say the address of the website you need to go to in your browser,
+if not you can click hear > [DM's Toolbox Site](http://localhost:3000)
+
+---
+
+## Everything Below This Pint Is For Developers
+
+---
 
 ## Build Setup
 
