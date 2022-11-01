@@ -1,7 +1,9 @@
 {
-  "name": "dm-toolbox2",
-  "version": "1.0.0",
-  "private": true,
+  "name": "dm-toolbox",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Chris Brighton",
+  "description": "A collection of tools to help Dungeon Master's with there D&D games",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
