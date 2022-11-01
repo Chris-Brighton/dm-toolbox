@@ -1,0 +1,72 @@
+[
+  {
+    "name": "campaign",
+    "path": "/campaign",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/campaign/index.vue",
+    "chunkName": "pages/campaign/index",
+    "_name": "_7ac61530"
+  },
+  {
+    "name": "encounter",
+    "path": "/encounter",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/encounter/index.vue",
+    "chunkName": "pages/encounter/index",
+    "_name": "_468e9a1e"
+  },
+  {
+    "name": "monster",
+    "path": "/monster",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/monster/index.vue",
+    "chunkName": "pages/monster/index",
+    "_name": "_62e62cd0"
+  },
+  {
+    "name": "spell",
+    "path": "/spell",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/spell/index.vue",
+    "chunkName": "pages/spell/index",
+    "_name": "_0da84626"
+  },
+  {
+    "name": "table",
+    "path": "/table",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/table/index.vue",
+    "chunkName": "pages/table/index",
+    "_name": "_4dbae94c"
+  },
+  {
+    "name": "monster-create",
+    "path": "/monster/create",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/monster/create.vue",
+    "chunkName": "pages/monster/create",
+    "_name": "_2ac49426"
+  },
+  {
+    "name": "spell-create",
+    "path": "/spell/create",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/spell/create.vue",
+    "chunkName": "pages/spell/create",
+    "_name": "_61d66d50"
+  },
+  {
+    "name": "monster-id",
+    "path": "/monster/:id",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/monster/_id.vue",
+    "chunkName": "pages/monster/_id",
+    "_name": "_7af87200"
+  },
+  {
+    "name": "spell-id",
+    "path": "/spell/:id",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/spell/_id.vue",
+    "chunkName": "pages/spell/_id",
+    "_name": "_d284cbe4"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/ng-00230/workspace/dm-toolbox/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2063388d"
+  }
+]

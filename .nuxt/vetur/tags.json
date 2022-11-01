@@ -1,0 +1,41 @@
+{
+  "DataTable": {
+    "description": "Auto imported from components/DataTable.vue"
+  },
+  "DataTableScreen": {
+    "description": "Auto imported from components/DataTableScreen.vue"
+  },
+  "DetailsScreen": {
+    "description": "Auto imported from components/DetailsScreen.vue"
+  },
+  "Dice": {
+    "description": "Auto imported from components/Dice.vue"
+  },
+  "DicePill": {
+    "description": "Auto imported from components/DicePill.vue"
+  },
+  "GCol": {
+    "description": "Auto imported from components/GCol.vue"
+  },
+  "GRow": {
+    "description": "Auto imported from components/GRow.vue"
+  },
+  "MakeDiceRoll": {
+    "description": "Auto imported from components/MakeDiceRoll.vue"
+  },
+  "ModPill": {
+    "description": "Auto imported from components/ModPill.vue"
+  },
+  "TextEditor": {
+    "description": "Auto imported from components/TextEditor.vue"
+  },
+  "FormSpell": {
+    "description": "Auto imported from components/Form/Spell.vue"
+  },
+  "SpellScaleDice": {
+    "description": "Auto imported from components/SpellScale/Dice.vue"
+  },
+  "SpellScaleStatic": {
+    "description": "Auto imported from components/SpellScale/Static.vue"
+  }
+}

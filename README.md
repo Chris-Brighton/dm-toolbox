@@ -1,8 +1,14 @@
 # DM's Toolbox
 
-## Install Setup
+## Install Setup For Just Running the toolbox for your game
 
 Install the version of node relevant to your operating system > [Node Link](https://nodejs.org/en/download/)
+
+---
+
+## Everything Below Is For Development
+
+---
 
 ## Build Setup
 
