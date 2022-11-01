@@ -23,6 +23,19 @@ if not you can click hear > [DM's Toolbox Site](http://localhost:3000)
 
 ---
 
+## Info
+
+The application makes use of the nuxt `server` dir and has a connection to a local sqlite database.
+The server makes use of 2 of my other git repos.
+
+### [nuxt-serve](https://github.com/Chris-Brighton/nuxt-serve)
+
+Controls the services and the express app
+
+### [sequelize-handlers](https://github.com/Chris-Brighton/sequelize-handlers)
+
+Just to parse queries from the front end ready for sequelize, sequelize-handlers is an updated fork of [botter-workshop/sequelize-handlers](https://github.com/botter-workshop/sequelize-handlers)
+
 ## Build Setup
 
 ```bash
