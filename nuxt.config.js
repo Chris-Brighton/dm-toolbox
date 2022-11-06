@@ -61,9 +61,6 @@ export default {
     // https://www.npmjs.com/package/@nuxtjs/dotenv
     ['@nuxtjs/dotenv', { systemvars: true }],
 
-    // https://auth.nuxtjs.org/
-    '@nuxtjs/auth-next',
-
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
 
