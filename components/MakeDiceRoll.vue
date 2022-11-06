@@ -253,6 +253,7 @@ export default {
   mounted() {
     if (Array.isArray(this.value)) {
       this.internal = this.value
+      this.makeDisplay()
     } else {
       this.$emit('input', [])
     }

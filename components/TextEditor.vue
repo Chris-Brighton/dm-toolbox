@@ -41,8 +41,6 @@ const editorToolbar = [
   ['link'],
   ['clean'],
 ]
-const id = uuid()
-
 export default {
   name: 'TextEditor',
   props: {
@@ -66,7 +64,7 @@ export default {
   emits: ['input'],
   data() {
     return {
-      id,
+      id: uuid(),
       html: this.value,
       active: false,
       toolbar: editorToolbar,

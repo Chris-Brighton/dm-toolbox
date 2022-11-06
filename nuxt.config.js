@@ -51,14 +51,25 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
+    // https://pwa.nuxtjs.org
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://www.npmjs.com/package/@nuxtjs/dotenv
+    ['@nuxtjs/dotenv', { systemvars: true }],
+
+    // https://auth.nuxtjs.org/
+    '@nuxtjs/auth-next',
+
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
     // https://www.npmjs.com/package/vue2-editor
     'vue2-editor/nuxt',
+
     // https://www.npmjs.com/package/@nuxtjs/toast
     '@nuxtjs/toast',
   ],
@@ -66,7 +77,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.baseUrl || 'http://localhost:3000/',
+    baseURL: process.env.baseUrl || '/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -98,5 +109,9 @@ export default {
         implementation: require('sass'),
       },
     },
+  },
+  server: {
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000,
   },
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-app dark :style="cssVars">
+  <v-app dark :style="cssVars" class="">
     <v-app-bar app dense class="pr-0 hover-root">
       <router-link to="/" class="d-flex align-center home-link" title="Home">
         <v-icon large class="mr-2 d20-icon">mdi-dice-d20</v-icon>
@@ -48,7 +48,7 @@
         </v-tooltip>
       </v-btn-toggle>
     </v-app-bar>
-    <v-main>
+    <v-main class="dm-toolbox-app-wrap">
       <v-container class="pa-0 ma-0" style="max-width: unset">
         <Nuxt />
       </v-container>
@@ -76,6 +76,9 @@ export default {
       loading: false,
     }
   },
+  mounted() {
+    console.log(this.$vuetify.theme)
+  },
   computed: {
     cssVars() {
       const { primary, secondary, accent, info, success, warning, error } =
@@ -88,6 +91,18 @@ export default {
         '--v-success': success,
         '--v-warning': warning,
         '--v-error': error,
+        '--v-app-bar': '#272727',
+        '--v-surface': '#1E1E1E',
+        '--v-grey-0': '#000000',
+        '--v-grey-1': '#1E1E1E',
+        '--v-grey-2': '#222222',
+        '--v-grey-3': '#252525',
+        '--v-grey-4': '#272727',
+        '--v-grey-6': '#2C2C2C',
+        '--v-grey-8': '#2E2E2E',
+        '--v-grey-12': '#333333',
+        '--v-grey-16': '#363636',
+        '--v-grey-24': '#37373',
       }
     },
   },
@@ -103,7 +118,8 @@ export default {
 </script>
 
 <style lang="sass">
-.home-link
+*
+  scrollbar-color: grey #272727
   &:hover
     .d20-icon
       color: var(--v-primary)
@@ -114,8 +130,8 @@ export default {
     .custom-menu-btn
       opacity: 0
 .push-right
-  right: -385px
-  transition: all 1s ease
+  right: -320px
+  transition: all 0.5s ease
 .v-dialog
   border-radius: 0
   border: thin solid rgba(255, 255, 255, 0.12)
@@ -127,7 +143,7 @@ export default {
 .nuxt-link
   text-decoration: none !important
 .custom-menu-btn
-  transition: all ease 0.75s
+  transition: all ease 0.25s
   opacity: 1
 a
   color: inherit !important
@@ -151,4 +167,7 @@ a
   letter-spacing: 0.0125em
 .v-dialog
   border-radius: 0px !important
+
+.dm-toolbox-app-wrap
+  background: #fff url(/bg.png) right bottom/cover no-repeat
 </style>

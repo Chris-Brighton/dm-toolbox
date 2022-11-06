@@ -1,11 +1,11 @@
 <template>
   <g-row v-if="!loading" cols="1">
     <g-col cols="1">
-      <label>Spell {{ name }} Scaling</label>
+      <h3>Spell {{ name }} Scaling</h3>
       <v-row><v-col cols="12" /> </v-row>
     </g-col>
     <g-col cols="1">
-      <g-row v-for="(i, k) in scale" :key="k" cols="11">
+      <g-row v-for="(i, k) in internal" :key="k" cols="11">
         <g-col cols="9">
           <make-dice-roll
             ref="diceRoll"
@@ -46,40 +46,40 @@
 export default {
   name: 'SpellScaleDice',
   props: {
-    startLevel: {
-      type: Number,
-      default: null,
-    },
     name: {
       type: String,
       default: 'Level',
     },
-    value: {
+    scale: {
       type: Array,
       default() {
         return []
       },
     },
   },
-  emits: ['input'],
+  emits: ['update-scale'],
   data() {
     return {
-      scale: [],
+      internal: this.scale,
       copyRoll: null,
       copyIndex: null,
       loading: false,
     }
   },
   watch: {
-    startLevel(n, o) {
-      if (n !== o) {
-        this.updateScale(n)
-      }
+    internal: {
+      deep: true,
+      handler() {
+        this.$emit('update-scale', this.internal)
+      },
     },
-    value() {},
-  },
-  mounted() {
-    if (this.startLevel) this.updateScale(this.startLevel)
+    scale: {
+      deep: true,
+      handler(n) {
+        console.log('scale watcher')
+        this.internal = n
+      },
+    },
   },
   methods: {
     copy(roll, index) {
@@ -88,27 +88,6 @@ export default {
     },
     paste(index) {
       this.$refs.diceRoll[index].save(this.copyRoll)
-    },
-    updateScale(n) {
-      this.loading = true
-      this.$nextTick(() => {
-        const scale = []
-        for (let i = n; i <= 20; i++) {
-          const found = this.scale.find((s) => (s.level = i))
-          if (found) {
-            scale.push(found)
-          } else {
-            scale.push({
-              level: i,
-              roll: [],
-            })
-          }
-        }
-        this.$nextTick(() => {
-          this.scale = scale
-          this.loading = false
-        })
-      })
     },
   },
 }

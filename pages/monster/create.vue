@@ -28,6 +28,7 @@
         Import
       </v-btn>
     </div>
+    <form-monster v-model="monster" :valid.sync="valid" />
     <template #actions>
       <v-btn tile block color="success" x-large @click.prevent="create">
         create
@@ -48,6 +49,8 @@ export default {
     return {
       selectedMonster: null,
       imported: null,
+      valid: false,
+      monster: {},
     }
   },
   methods: {

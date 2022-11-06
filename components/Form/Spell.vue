@@ -1,7 +1,7 @@
 <template>
   <v-form v-model="isValid">
-    <g-row cols="12">
-      <g-col cols="8">
+    <grid-row :cols="4" :md="2">
+      <grid-col :cols="2">
         <!-- input:Name -->
         <v-text-field
           v-model="spell.name"
@@ -15,8 +15,8 @@
             <span class="error--text">*</span>
           </template>
         </v-text-field>
-      </g-col>
-      <g-col cols="2">
+      </grid-col>
+      <grid-col :cols="1">
         <!-- input:Level -->
         <v-select
           v-model="spell.level"
@@ -24,14 +24,15 @@
           :items="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
           filled
           class="rounded-0"
+          @change="updateScale"
         >
           <template #label>
             Level
             <span class="error--text">*</span>
           </template>
         </v-select>
-      </g-col>
-      <g-col cols="2">
+      </grid-col>
+      <grid-col :cols="1">
         <!-- input:School -->
         <v-select
           v-model="spell.school"
@@ -50,11 +51,11 @@
           filled
           class="rounded-0"
         />
-      </g-col>
-    </g-row>
+      </grid-col>
+    </grid-row>
 
-    <g-row cols="3">
-      <g-col cols="1">
+    <grid-row :cols="3" :md="1">
+      <grid-col :cols="1">
         <!-- input:Casting Time -->
         <v-text-field
           v-model="spell.castingTime"
@@ -64,8 +65,8 @@
           filled
           class="rounded-0"
         />
-      </g-col>
-      <g-col cols="1">
+      </grid-col>
+      <grid-col :cols="1">
         <!-- input:Casting Type -->
         <v-select
           v-model="spell.castingType"
@@ -76,8 +77,8 @@
           class="rounded-0"
           @change="updatedCastingType"
         />
-      </g-col>
-      <g-col cols="1">
+      </grid-col>
+      <grid-col :cols="1">
         <!-- input:Reaction Casting Time Description -->
         <v-text-field
           v-model="spell.reactionCastingTimeDescription"
@@ -88,8 +89,8 @@
           filled
           class="rounded-0"
         />
-      </g-col>
-    </g-row>
+      </grid-col>
+    </grid-row>
 
     <!-- input:Ritual -->
     <v-checkbox v-model="spell.ritual" color="secondary" dense>
@@ -327,11 +328,12 @@
     </g-row>
 
     <v-radio-group
-      v-model="scale"
+      v-model="spell.scaleType"
       dense
       row
       hide-details
-      @change="updateScalingType"
+      class="mb-4"
+      @change="updateScale"
     >
       <v-radio color="secondary" label="No Scaling" value="FALSE" />
       <v-radio
@@ -344,11 +346,23 @@
     </v-radio-group>
 
     <spell-scale-dice
-      v-if="scale === 'Character'"
+      :scale="spell.scale"
+      v-if="spell.scaleType === 'Character' && !updatingScale"
+      @update-scale="updateScaleValue"
       name="Character"
-      :start-level="spell.level"
     />
-    <spell-scale-dice v-if="scale === 'Level'" :start-level="spell.level" />
+    <spell-scale-dice
+      :scale="spell.scale"
+      name="Level"
+      @update-scale="updateScaleValue"
+      v-if="spell.scaleType === 'Level' && !updatingScale"
+    />
+
+    <spell-scale-static
+      :scale="spell.scale"
+      v-if="spell.scaleType === 'Basic' && !updatingScale"
+      @update-scale="updateScaleValue"
+    />
   </v-form>
 </template>
 
@@ -372,6 +386,8 @@ export default {
           verbal: false,
           somatic: false,
           material: false,
+          scale: [],
+          scalingType: 'FALSE',
         }
       },
     },
@@ -384,7 +400,7 @@ export default {
   data() {
     return {
       isValid: true,
-      scale: 'FALSE',
+      updatingScale: false,
       castingTypes: spellCastingTypes,
       rangeTypes: spellRangeTypes,
       durationTypes: spellDurationTypes,
@@ -422,12 +438,40 @@ export default {
     },
   },
   methods: {
+    updated(s) {
+      console.log('updated', s)
+    },
     runUpdate() {
       const { durationType, scalingType, castingType, rangeType } = this.spell
       if (durationType) this.updatedDurationType(durationType)
       if (scalingType) this.updateScalingType(scalingType)
       if (castingType) this.updatedCastingType(castingType)
       if (rangeType) this.updatedRangeType(rangeType)
+      this.updateScale()
+    },
+    updateScale() {
+      const { scaleType, level } = this.spell
+      console.log('level', level, 'scale', scaleType)
+      this.updatingScale = true
+      if (scaleType && level >= 0) {
+        if (['Level', 'Character'].includes(scaleType)) {
+          const scale = []
+          for (let i = this.spell.level; i <= 9; i++) {
+            scale.push({
+              level: i,
+              roll: [],
+            })
+          }
+          this.spell.scale = scale
+        }
+      }
+      this.$nextTick(() => {
+        this.updatingScale = false
+      })
+    },
+    updateScaleValue(s) {
+      console.log('called update')
+      this.spell.scale = s
     },
     updatedDurationType(type) {
       const disable = [
@@ -448,20 +492,6 @@ export default {
       } else {
         this.disabled.duration = false
         this.disabled.durationTime = false
-      }
-    },
-    updateScalingType(type) {
-      delete this.spell.scaleCharacter
-      delete this.spell.scaleLevel
-      delete this.spell.scaleBasic
-      if (type !== 'FALSE') {
-        this.appLoading(true)
-        this.$nextTick(() => {
-          this.spell['scale' + type] = []
-          this.$nextTick(() => {
-            this.appLoading(false)
-          })
-        })
       }
     },
     updatedCastingType(type) {

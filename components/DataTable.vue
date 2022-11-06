@@ -36,11 +36,12 @@
                 'text-left': align !== 'left' || align !== 'right',
                 'text-center': align === 'center',
                 'text-right': align === 'right',
+                'is-sorted': value === sortBy[0],
               }"
               :style="cellStyle(width, maxWidth)"
-              @click.prevent="on.sort(value)"
+              @click.prevent="sortable !== false ? on.sort(value) : null"
             >
-              <div class="d-flex">
+              <div class="d-flex justify-space-between">
                 <span v-if="text" :sort-by="sortBy" :sort-desc="sortDesc">
                   {{ text }}
                 </span>
@@ -48,13 +49,7 @@
                   <v-icon
                     class="ml-1"
                     small
-                    :color="
-                      sortIcon(value, sortBy[0], sortDesc[0]).includes(
-                        'mdi-arrow-'
-                      )
-                        ? 'secondary'
-                        : 'grey'
-                    "
+                    :color="value === sortBy[0] ? 'secondary' : 'grey'"
                   >
                     {{ sortIcon(value, sortBy[0], sortDesc[0]) }}
                   </v-icon>
@@ -273,6 +268,9 @@ export default {
   width: 36px !important
   min-width: 36px !important
 .custom-th
+  background: var(--v-grey-2)
   &:hover
     color: var(--v-primary) !important
+.is-sorted
+  background: var(--v-app-bar) !important
 </style>

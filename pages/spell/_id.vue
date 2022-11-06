@@ -39,7 +39,6 @@ export default {
       const data = await this.$service('spell').update(id, update)
       if (data && data.id) {
         this.$toast.success('Spell Saved')
-        this.spell = data
       } else {
         this.$toast.error('Error Saving Spell')
       }

@@ -1,6 +1,6 @@
-const { NuxtServe } = require('nuxt-serve')
+const { NuxtLynx } = require('nuxt-serve')
 const Sequelize = require('sequelize')
-const server = new NuxtServe()
+const server = new NuxtLynx()
 const services = require('./services')
 server.sequelize(
   new Sequelize({
